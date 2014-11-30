@@ -1,3 +1,7 @@
 == README
 
 Simple Forum App using devise and will_paginate. Check gemfile for full list of gems.
+
+Live site available at:
+
+https://salty-mountain-2938.herokuapp.com/
