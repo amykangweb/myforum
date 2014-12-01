@@ -16,14 +16,44 @@
   <%= @post.content %>
 </p>
 
-<p><%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %></p>
+<% if user_signed_in? %>
+<% if @post.user == current_user || current_user.admin? %>
+
+<%= link_to 'Edit Post', edit_post_path(@post) %>
+
+<% end %>
+
+<% if current_user.admin? %>
+
+&nbsp;|&nbsp;<%= link_to "Delete", @post, method: :delete, data: {confirm: "are you sure?"} %>
+
+<% end %>
+<% end %>
+
+<p></p>
 
 <% unless @post.replies.blank? %>
 
 <% @post.replies.each do |reply| %>
 	<strong>Posted by: <%= reply.user.email %></strong><br>
 	<p><%= reply.body %></p>
+
+<% if user_signed_in? %>
+	<% if reply.user == current_user || current_user.admin? %>
+
+		<%= link_to "Edit", edit_post_reply_path(reply.post, reply) %>
+
+	<% end %>
+
+	<% if current_user.admin? %>
+
+		&nbsp;|&nbsp;<%= link_to "Delete", [reply.post, reply], method: :delete, data: {confirm: "are you sure?"} %>
+
+	<% end %>
+<% end %>
+
+<p></p>
+
 <% end %>
 
 <% end %>

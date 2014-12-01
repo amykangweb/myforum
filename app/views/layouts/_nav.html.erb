@@ -8,6 +8,16 @@
 
 <% else %>
 
-<p><%= link_to "Sign Out", destroy_user_session_path %></p>
+<p><strong>Hello!</strong> <%= current_user.email %>
+
+<% if current_user.admin? %>
+
+	| <em> Admin </em>
+
+<% end %>
+
+</p>
+
+<p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
 
 <% end %>
