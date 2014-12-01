@@ -16,7 +16,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= link_to post.title, post %></td>
-        <td><%= post.user.email %></td>
+        
         <td>Posted <%= time_ago_in_words(post.created_at) %> ago.</td>
         <td><%= post.replies.count %></td>
       </tr>
