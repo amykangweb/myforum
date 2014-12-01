@@ -17,7 +17,7 @@
 </thead>
 
 <tbody>
-<% @sticky.posts.each do |sticky| %>
+<% @sticky.each do |sticky| %>
 
   <tr>
     <td><%= link_to sticky.title, sticky %></td>
@@ -60,7 +60,7 @@ No Stickies
   <tbody>
     <% @posts.each do |post| %>
 
-      <% unless post.user.admin? %>
+      <% unless post.sticky? %>
 
       <tr>
         <td><%= link_to post.title, post %></td>

@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   respond_to :html
 
   def index
-    @sticky = User.find_by(:admin => true)
+    @sticky = Post.where(:sticky => true)
     @posts = Post.all
   end
 
@@ -60,6 +60,10 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content)
+      if current_user.admin?
+        params.require(:post).permit(:title, :content, :sticky)
+      else
+        params.require(:post).permit(:title, :content)
+      end
     end
 end
