@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
+  resources :users
+
   resources :posts do
-    resources :replies
+    resources :replies, except: [:show]
   end
 
   root 'posts#index'

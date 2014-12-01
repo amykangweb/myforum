@@ -25,6 +25,7 @@ class RepliesController < ApplicationController
   def create
     @reply = Reply.new(reply_params)
     @reply.post_id = @post.id
+    @reply.user_id = current_user.id
     @reply.save
     redirect_to(@post)
   end

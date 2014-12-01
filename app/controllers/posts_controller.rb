@@ -6,7 +6,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    respond_with(@posts)
   end
 
   def show
@@ -23,6 +22,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     @post.save
     respond_with(@post)
   end
