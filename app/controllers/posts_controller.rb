@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   respond_to :html
 
   def index
+    @sticky = User.find_by(:admin => true)
     @posts = Post.all
   end
 

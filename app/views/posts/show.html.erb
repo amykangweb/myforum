@@ -2,7 +2,13 @@
 
 <p><%= link_to "Reply", new_post_reply_path(@post) %></p>
 
-<p><strong>Posted by: <%= link_to @post.user.email, @post.user %></strong></p>
+<p><strong>Posted by: <%= link_to @post.user.email, @post.user %></strong>
+
+<% if @post.user.admin? %>
+&nbsp;|&nbsp;<em>admin</em>
+<% end %>
+
+</p>
 
 <p>Posted <%= time_ago_in_words(@post.created_at) %> ago.</p>
 
@@ -35,7 +41,12 @@
 <% unless @post.replies.blank? %>
 
 <% @post.replies.each do |reply| %>
-	<strong>Posted by: <%= reply.user.email %></strong><br>
+	<strong>Posted by: <%= reply.user.email %></strong>
+
+	<% if reply.user.admin? %>
+		&nbsp;|&nbsp;<em>admin</em>
+	<% end %>
+
 	<p><%= reply.body %></p>
 
 <% if user_signed_in? %>
