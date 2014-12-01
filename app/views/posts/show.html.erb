@@ -2,7 +2,7 @@
 
 <p><%= link_to "Reply", new_post_reply_path(@post) %></p>
 
-<p><strong>Posted by: <%= @post.user.email %></strong></p>
+<p><strong>Posted by: <%= link_to @post.user.email, @post.user %></strong></p>
 
 <p>Posted <%= time_ago_in_words(@post.created_at) %> ago.</p>
 

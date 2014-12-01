@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  match 'reply', to: 'replies#new', via: 'get'
+  match 'users/show', to: "users#show", via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

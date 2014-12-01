@@ -5,3 +5,5 @@ Simple Forum App using devise and will_paginate. Check gemfile for full list of 
 Live site available at:
 
 https://salty-mountain-2938.herokuapp.com/
+
+This app is a work in progress.
