@@ -1,4 +1,4 @@
-<%= form_for([@post, @post.replies.build]) do |f| %>
+<%= form_for([@post, @reply]) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this reply from being saved:</h2>

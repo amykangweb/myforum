@@ -1,6 +1,6 @@
 class RepliesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_reply, only: [:show, :edit, :update, :destroy]
+  before_action :set_reply, only: [:edit, :update, :destroy]
   before_action :set_post
   before_action :check_user, except: [:new, :create, :destroy]
   before_action :set_admin, only: [:destroy]
@@ -18,7 +18,6 @@ class RepliesController < ApplicationController
 
   def new
     @reply = Reply.new
-    respond_with(@reply)
   end
 
   def edit
@@ -34,7 +33,7 @@ class RepliesController < ApplicationController
 
   def update
     @reply.update(reply_params)
-    respond_with(@reply)
+    respond_with(@post)
   end
 
   def destroy

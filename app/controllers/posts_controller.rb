@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @reply = Reply.new
     respond_with(@post)
   end
 
