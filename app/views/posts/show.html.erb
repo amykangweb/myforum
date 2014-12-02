@@ -8,6 +8,10 @@
 &nbsp;|&nbsp;<em>admin</em>
 <% end %>
 
+<br>
+
+<%= image_tag current_user.gravatar_url %>
+
 </p>
 
 <p>Posted <%= time_ago_in_words(@post.created_at) %> ago.</p>

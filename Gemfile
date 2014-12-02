@@ -33,6 +33,8 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
+gem 'gravtastic'
+
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 

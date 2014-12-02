@@ -16,6 +16,8 @@
 
 <% end %>
 
+<p><%= image_tag current_user.gravatar_url %></p>
+
 </p>
 
 <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>

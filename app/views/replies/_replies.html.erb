@@ -7,6 +7,10 @@
 		&nbsp;|&nbsp;<em>admin</em>
 	<% end %>
 
+	<br>
+
+	<%= image_tag reply.user.gravatar_url %>
+
 	<p><%= reply.body %></p>
 
 <% if user_signed_in? %>
