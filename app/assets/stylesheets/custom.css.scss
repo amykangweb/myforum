@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+table {
+	clear: both;
+}
+
 table td {
 	text-align: center;
 	width: 5%;
@@ -38,10 +42,6 @@ h4 {
 
 .big-space {
 	margin-top: 2%;
-}
-
-table {
-	clear: both;
 }
 
 .btn btn-primary {
