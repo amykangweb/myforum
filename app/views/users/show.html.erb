@@ -1,5 +1,7 @@
 <h1>User Profile Page</h1>
 
+<p><%= image_tag @user.gravatar_url %></p>
+
 <p><strong>Email:</strong> <%= @user.email %></p>
 
 <p><strong>Post Count:</strong> <%= @user.posts.count %></p>

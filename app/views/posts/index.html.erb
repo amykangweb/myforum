@@ -1,53 +1,20 @@
-<h1>Listing posts</h1>
+<h3>General Discussion</h3>
 
-<p><%= link_to 'New Post', new_post_path %></p>
+<p class="space"></p>
 
+<div class="digg_pagination">
 <%= will_paginate @posts %>
+</div>
 
-<h3>Sticky Posts</h3>
+<p><%= link_to 'New Post', new_post_path, class: "btn btn-primary" %></p>
 
-<% unless @sticky.blank? %>
+<h4>Sticky Posts</h4>
 
-<table>
-<thead>
-  <tr>
-    <th>Title</th>
-    <th>User</th>
-    <th>Created at</th>
-    <th>Replies</th>
-  </tr>
-</thead>
+<%= render 'sticky' %>
 
-<tbody>
-<% @sticky.each do |sticky| %>
+<p class="space"></p>
 
-  <tr>
-    <td><%= link_to sticky.title, sticky %></td>
-    <td><%= sticky.user.email %></td>
-    <td>Posted <%= time_ago_in_words(sticky.created_at) %> ago.</td>
-    <td><%= sticky.replies.count %></td>
-
-    <% if user_signed_in? %>
-        <% if current_user.admin? %>
-
-        <td><%= link_to 'Destroy', sticky, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-    <% end %>
-    <% end %>
-  </tr>
-
-<% end %>
-
-</tbody>
-</table>
-
-<% else %>
-
-No Stickies
-
-<% end %>
-
-<h3>Latest Posts</h3>
+<h4>Latest Posts</h4>
 
 <table>
   <thead>
@@ -85,4 +52,10 @@ No Stickies
   </tbody>
 </table>
 
+<p class="big-space"></p>
+
+<p><%= link_to 'New Post', new_post_path, class: "btn btn-primary" %></p>
+
+<div class="digg_pagination bottom">
 <%= will_paginate @posts %>
+</div>

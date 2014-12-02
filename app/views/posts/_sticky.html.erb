@@ -1,0 +1,40 @@
+<% unless @sticky.blank? %>
+
+<table>
+<thead>
+  <tr>
+    <th>Title</th>
+    <th>User</th>
+    <th>Created at</th>
+    <th>Replies</th>
+  </tr>
+</thead>
+
+<tbody>
+<% @sticky.each do |sticky| %>
+
+  <tr>
+    <td><%= link_to sticky.title, sticky %></td>
+    <td><%= sticky.user.email %></td>
+    <td>Posted <%= time_ago_in_words(sticky.created_at) %> ago.</td>
+    <td><%= sticky.replies.count %></td>
+
+    <% if user_signed_in? %>
+        <% if current_user.admin? %>
+
+        <td><%= link_to 'Destroy', sticky, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <% end %>
+    <% end %>
+  </tr>
+
+<% end %>
+
+</tbody>
+</table>
+
+<% else %>
+
+No Stickies
+
+<% end %>
