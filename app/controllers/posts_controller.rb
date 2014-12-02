@@ -8,12 +8,12 @@ class PostsController < ApplicationController
 
   def index
     @sticky = Post.where(:sticky => true)
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page])
   end
 
   def show
     @reply = Reply.new
-    respond_with(@post)
+    @replies = @post.replies.paginate(page: params[:page])
   end
 
   def new

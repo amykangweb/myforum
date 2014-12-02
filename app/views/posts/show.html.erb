@@ -2,6 +2,8 @@
 
 <p><%= link_to "Reply", new_post_reply_path(@post) %></p>
 
+<%= will_paginate @replies %>
+
 <p><strong>Posted by: <%= link_to @post.user.email, @post.user %></strong>
 
 <% if @post.user.admin? %>
@@ -43,5 +45,7 @@
 <p></p>
 
 <%= render 'replies/replies' %>
+
+<%= will_paginate @replies %>
 
 <p><%= render 'replies/form' %></p>

@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+(1..50).each do |i|
+	Post.create!(user_id: 1, title: %{Testing Pagination},
+	 content: %{Testing will_paginate with forum.})
+end
+
+(1..50).each do |i|
+	Reply.create!(user_id: 2, post_id: 3, body: %{Testing reply pagination.})
+end

@@ -2,6 +2,8 @@
 
 <p><%= link_to 'New Post', new_post_path %></p>
 
+<%= will_paginate @posts %>
+
 <h3>Sticky Posts</h3>
 
 <% unless @sticky.blank? %>
@@ -82,3 +84,5 @@ No Stickies
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @posts %>

@@ -1,6 +1,6 @@
-<% unless @post.replies.blank? %>
+<% unless @replies.blank? %>
 
-<% @post.replies.each do |reply| %>
+<% @replies.each do |reply| %>
 	<strong>Posted by: <%= reply.user.email %></strong>
 
 	<% if reply.user.admin? %>
