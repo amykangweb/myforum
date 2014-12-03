@@ -1,7 +1,7 @@
 <% unless @replies.blank? %>
 
 <% @replies.each do |reply| %>
-	<strong>Posted by: <%= reply.user.email %></strong>
+	<strong>Posted by: <%= reply.user.name %></strong>
 
 	<% if reply.user.admin? %>
 		&nbsp;|&nbsp;<em>admin</em>

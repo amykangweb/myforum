@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
 
    has_many :posts, dependent: :destroy
    has_many :replies, dependent: :destroy
+
+   validates :name, presence: true, length: {minimum: 2, maximum: 15}
 end

@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p><%= link_to "Reply", new_post_reply_path(@post) %></p>
+<p><%= link_to "Reply", new_post_reply_path(@post), class: "btn btn-primary" %></p>
 
 <%= will_paginate @replies %>
 
-<p><strong>Posted by: <%= link_to @post.user.email, @post.user %></strong>
+<p><strong>Posted by: <%= link_to @post.user.name, @post.user %></strong>
 
 <% if @post.user.admin? %>
 &nbsp;|&nbsp;<em>admin</em>
