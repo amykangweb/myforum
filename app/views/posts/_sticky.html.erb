@@ -15,7 +15,7 @@
 
   <tr>
     <td><%= link_to sticky.title, sticky %></td>
-    <td><%= sticky.user.name %></td>
+    <td><%= link_to sticky.user.name, sticky.user %></td>
     <td>Posted <%= time_ago_in_words(sticky.created_at) %> ago.</td>
     <td><%= sticky.replies.count %></td>
 
