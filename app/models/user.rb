@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
    has_many :replies, dependent: :destroy
 
    validates :name, presence: true, length: {minimum: 2, maximum: 15}
+
+   	def total_posts
+		self.replies.count + self.posts.count
+	end
 end

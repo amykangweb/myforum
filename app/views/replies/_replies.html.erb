@@ -1,15 +1,28 @@
 <% unless @replies.blank? %>
 
 <% @replies.each do |reply| %>
-	<strong>Posted by: <%= reply.user.name %></strong>
+
+<div class="row">
+
+<div class="col-md-2 user">
+
+	<strong><%= link_to reply.user.name, reply.user %></strong>
 
 	<% if reply.user.admin? %>
-		&nbsp;|&nbsp;<em>admin</em>
+		<br><em>admin</em>
 	<% end %>
 
-	<br>
+	<p></p>
 
-	<%= image_tag reply.user.gravatar_url %>
+	<p><%= image_tag reply.user.gravatar_url, class: "avatar" %></p>
+
+	Join Date: <%= reply.user.created_at.strftime("%b %Y") %><br>
+
+	Posts: <%= reply.user.total_posts %>
+
+</div>
+
+<div class="col-md-10 content">
 
 	<p><%= reply.body %></p>
 
@@ -27,7 +40,9 @@
 	<% end %>
 <% end %>
 
-<p></p>
+</div>
+
+</div>
 
 <% end %>
 

@@ -2,13 +2,17 @@
 
 <p><%= image_tag @user.gravatar_url %></p>
 
-<p><strong>Name:</strong> <%= @user.name %></p>
+<p><strong>Name:</strong> <%= @user.name %>
+<% if @user.admin? %>
+	&nbsp;|&nbsp;<em>Admin</em>
+<% end %>
+</p>
 
 <p><strong>Email:</strong> <%= @user.email %></p>
 
-<p><strong>Account Created:</strong> <%= time_ago_in_words(@user.created_at) %></p>
+<p><strong>Join Date:</strong> <%= @user.created_at.strftime("%b %d %Y") %></p>
 
-<p><strong>Post Count:</strong> <%= @user.posts.count %></p>
+<p><strong>Post Count:</strong> <%= @user.total_posts %></p>
 
 <% if user_signed_in? %>
 <% if current_user == @user || current_user.admin? %>
